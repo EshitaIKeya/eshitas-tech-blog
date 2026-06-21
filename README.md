@@ -179,6 +179,6 @@ eshitas-tech-blog/
 
 ## Built By
 
-**Eshita Islam** — Computer Science student, intern at Apurba Technologies Inc.
+**Eshita Islam Keya** —Information and Communication Engineering student, intern at Apurba Technologies Inc.
 
 Built from scratch as a learning project to understand full-stack web development: database design, REST APIs, authentication, frontend-backend integration, and containerized deployment.
