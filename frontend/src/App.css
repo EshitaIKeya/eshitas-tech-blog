@@ -1,0 +1,796 @@
+/* ========================================
+   THEME VARIABLES
+   ======================================== */
+
+/* Light Theme (default) */
+:root, [data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #1a1a2e;
+  --card-bg: #f8f9fa;
+  --border-color: #e0e0e0;
+  --accent-color: #4361ee;
+  --accent-hover: #3a56d4;
+  --meta-color: #6c757d;
+  --nav-bg: #ffffff;
+  --nav-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --input-bg: #ffffff;
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --code-bg: #f4f4f4;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #1a1a2e;
+  --text-color: #e0e0e0;
+  --card-bg: #16213e;
+  --border-color: #2a2a4a;
+  --accent-color: #4cc9f0;
+  --accent-hover: #3bb8df;
+  --meta-color: #a0a0b0;
+  --nav-bg: #16213e;
+  --nav-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --input-bg: #1e2a45;
+  --error-color: #ff6b6b;
+  --success-color: #51cf66;
+  --code-bg: #2a2a4a;
+}
+
+/* Eye Care Theme */
+[data-theme="eyecare"] {
+  --bg-color: #fdf6e3;
+  --text-color: #3b3b3b;
+  --card-bg: #f5edd6;
+  --border-color: #d4c9a8;
+  --accent-color: #b58900;
+  --accent-hover: #a07800;
+  --meta-color: #7a7a6a;
+  --nav-bg: #f5edd6;
+  --nav-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --input-bg: #fdf6e3;
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --code-bg: #eee8d5;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  min-height: calc(100vh - 140px);
+}
+
+/* ========================================
+   NAVBAR
+   ======================================== */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--nav-bg);
+  box-shadow: var(--nav-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.nav-brand:hover {
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--error-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.theme-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  color: var(--meta-color);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ========================================
+   HOME PAGE
+   ======================================== */
+
+.home h2 {
+  margin-bottom: 16px;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-form {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+.category-filter {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.post-card h3 {
+  margin-bottom: 8px;
+}
+
+.post-card h3 a,
+.post-card a {
+  color: var(--text-color);
+}
+
+.post-card h3 a:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.post-meta {
+  color: var(--meta-color);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.post-stats {
+  color: var(--meta-color);
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.post-preview {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.post-preview img {
+  max-width: 100%;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background: var(--border-color);
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: var(--meta-color);
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   AUTH FORMS
+   ======================================== */
+
+.auth-form {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form input {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.auth-form button {
+  padding: 10px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.auth-form button:hover {
+  background: var(--accent-hover);
+}
+
+.auth-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-form p {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   CREATE / EDIT POST
+   ======================================== */
+
+.create-post h2 {
+  margin-bottom: 20px;
+}
+
+.create-post form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-title-input {
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.category-select {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+/* Rich Text Editor */
+.editor-wrapper {
+  border-radius: 4px;
+}
+
+.editor-wrapper .ql-toolbar {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+  border-radius: 4px 4px 0 0;
+}
+
+.editor-wrapper .ql-container {
+  background: var(--input-bg);
+  border-color: var(--border-color);
+  border-radius: 0 0 4px 4px;
+  min-height: 250px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.editor-wrapper .ql-editor {
+  min-height: 250px;
+}
+
+.editor-wrapper .ql-editor.ql-blank::before {
+  color: var(--meta-color);
+}
+
+.create-post button[type="submit"],
+.edit-form button[type="submit"] {
+  padding: 12px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.create-post button:hover {
+  background: var(--accent-hover);
+}
+
+/* ========================================
+   POST DETAIL
+   ======================================== */
+
+.post-detail h1 {
+  margin-bottom: 8px;
+}
+
+.post-content {
+  margin: 24px 0;
+  line-height: 1.8;
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+  margin: 20px 0 10px;
+}
+
+.post-content p {
+  margin-bottom: 12px;
+}
+
+.post-content pre {
+  background: var(--code-bg);
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.post-content code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 16px;
+  margin: 12px 0;
+  color: var(--meta-color);
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.post-content ul, .post-content ol {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.admin-actions button,
+.edit-actions button {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.admin-actions button:first-child,
+.edit-actions button:first-child {
+  background: var(--accent-color);
+  color: white;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-form input, .edit-form select {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* ========================================
+   REACTIONS
+   ======================================== */
+
+.reactions {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.reaction-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.reaction-btn.active {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: white;
+}
+
+.reaction-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   COMMENTS
+   ======================================== */
+
+.comments-section {
+  margin-top: 32px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.comments-section h3 {
+  margin-bottom: 16px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.comment-form textarea {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.comment-form button {
+  align-self: flex-end;
+  padding: 8px 16px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.comment {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.comment-meta {
+  font-size: 0.85rem;
+  color: var(--meta-color);
+  margin-bottom: 6px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.comment-actions button {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.comment-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-edit textarea {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  min-height: 60px;
+  font-family: inherit;
+}
+
+.comment-edit button {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.comment-edit button:first-of-type {
+  background: var(--accent-color);
+  color: white;
+}
+
+/* ========================================
+   PROFILE
+   ======================================== */
+
+.profile {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.profile-info {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.profile-info p {
+  margin-bottom: 8px;
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.password-form input {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+.password-form button {
+  padding: 10px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ========================================
+   ABOUT & CONTACT
+   ======================================== */
+
+.about-me, .contact {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-content, .contact-content {
+  margin-top: 16px;
+  line-height: 1.8;
+}
+
+.about-content p {
+  margin-bottom: 12px;
+}
+
+.about-content h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.contact-card h3 {
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.loading {
+  text-align: center;
+  color: var(--meta-color);
+  padding: 40px;
+}
+
+.error-msg {
+  background: var(--error-color);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.success-msg {
+  background: var(--success-color);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.btn-danger {
+  background: var(--error-color) !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  background: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.not-found {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.not-found h2 {
+  font-size: 3rem;
+  color: var(--meta-color);
+}
+
+/* ========================================
+   BUTTONS (general)
+   ======================================== */
+
+button {
+  font-family: inherit;
+}
+
+.search-form button {
+  padding: 8px 16px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .nav-links {
+    gap: 10px;
+    justify-content: center;
+  }
+  .filters {
+    flex-direction: column;
+  }
+}
